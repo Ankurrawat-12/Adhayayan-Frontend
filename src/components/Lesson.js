@@ -17,7 +17,7 @@ const Lesson = () => {
     useEffect(() => {
         const fetchLesson = async () => {
             try {
-                const response = await fetch(`/api/lessons/${lessonId}`, {
+                const response = await fetch(`https://adhayayan-backend.onrender.com/api/lessons/${lessonId}`, {
                     headers: { Authorization: `Bearer ${token}` },
                 });
                 const data = await response.json();
@@ -46,7 +46,7 @@ const Lesson = () => {
     useEffect(() => {
         const checkForMCQs = async () => {
             try {
-                const response = await fetch(`/api/quiz/${lessonId}`, {
+                const response = await fetch(`https://adhayayan-backend.onrender.com/api/quiz/${lessonId}`, {
                     headers: { Authorization: `Bearer ${token}` },
                 });
                 const data = await response.json();
@@ -67,7 +67,7 @@ const Lesson = () => {
         setGeneratingQuiz(true);
 
         try {
-            const response = await fetch("/api/quiz/generate", {
+            const response = await fetch("https://adhayayan-backend.onrender.com/api/quiz/generate", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

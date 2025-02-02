@@ -16,7 +16,7 @@ const ChatBox = () => {
     setLoading(true);
 
     try {
-      const response = await fetch('/api/chat', {
+      const response = await fetch('https://adhayayan-backend.onrender.com/api/chat', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

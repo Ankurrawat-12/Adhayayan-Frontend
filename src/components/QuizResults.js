@@ -17,7 +17,7 @@ const QuizResults = ({ results, lessonId }) => {
             if (wrongAnswers.length === 0) return;
 
             try {
-                const response = await fetch("/api/explanations", {
+                const response = await fetch("https://adhayayan-backend.onrender.com/api/explanations", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",

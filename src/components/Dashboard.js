@@ -12,7 +12,7 @@ const Dashboard = () => {
     useEffect(() => {
         const fetchLessons = async () => {
             try {
-                const response = await fetch("/api/lessons", {
+                const response = await fetch("https://adhayayan-backend.onrender.com/api/lessons", {
                     headers: { Authorization: `Bearer ${token}` },
                 });
                 const data = await response.json();
@@ -26,7 +26,7 @@ const Dashboard = () => {
 
         const fetchRecentActivity = async () => {
             try {
-                const response = await fetch("/api/recent-activity", {
+                const response = await fetch("https://adhayayan-backend.onrender.com/api/recent-activity", {
                     headers: { Authorization: `Bearer ${token}` },
                 });
                 const data = await response.json();

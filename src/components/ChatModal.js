@@ -35,7 +35,7 @@ const ChatModal = ({ onClose, lesson }) => {
 
 
         try {
-            const response = await fetch("/api/chat", {
+            const response = await fetch("https://adhayayan-backend.onrender.com/api/chat", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

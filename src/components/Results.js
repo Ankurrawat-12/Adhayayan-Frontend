@@ -23,7 +23,7 @@ const Results = () => {
                     throw new Error("No quiz data found.");
                 }
 
-                const response = await fetch(`/api/results/${lessonId}`, {
+                const response = await fetch(`https://adhayayan-backend.onrender.com/api/results/${lessonId}`, {
                     method: "POST",
                     headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
                     body: JSON.stringify({ userAnswers }),

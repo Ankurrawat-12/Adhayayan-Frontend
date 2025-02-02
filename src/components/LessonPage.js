@@ -15,7 +15,7 @@ const LessonPage = () => {
     useEffect(() => {
         const fetchLesson = async () => {
             try {
-                const response = await fetch(`/api/lessons/${lessonId}`, {
+                const response = await fetch(`https://adhayayan-backend.onrender.com/api/lessons/${lessonId}`, {
                     headers: { Authorization: `Bearer ${user.token}` },
                 });
                 const data = await response.json();

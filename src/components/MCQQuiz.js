@@ -12,7 +12,7 @@ const MCQQuiz = ({ lessonId }) => {
   useEffect(() => {
     const fetchMCQs = async () => {
       try {
-        const response = await fetch(`/api/mcqs/${lessonId}`, {
+        const response = await fetch(`https://adhayayan-backend.onrender.com/api/mcqs/${lessonId}`, {
           headers: { Authorization: `Bearer ${user.token}` },
         });
         const data = await response.json();

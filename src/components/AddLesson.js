@@ -20,7 +20,7 @@ const AddLesson = () => {
         setError("");
 
         try {
-            const response = await fetch("/api/lessons/create", {
+            const response = await fetch("https://adhayayan-backend.onrender.com/api/lessons/create", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

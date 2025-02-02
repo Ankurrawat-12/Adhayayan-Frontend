@@ -20,7 +20,7 @@ const Quiz = () => {
     useEffect(() => {
         const fetchQuestions = async () => {
             try {
-                const response = await fetch(`/api/quiz/${lessonId}`, {
+                const response = await fetch(`https://adhayayan-backend.onrender.com/api/quiz/${lessonId}`, {
                     headers: { Authorization: `Bearer ${token}` },
                 });
                 const data = await response.json();
