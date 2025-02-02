@@ -25,6 +25,10 @@ export const AuthProvider = ({ children }) => {
 
       setUser(data.user);
       setToken(data.token);
+      console.log("User State:", user);
+      console.log("Stored Token:", localStorage.getItem("token"));
+      console.log("token: ", token)
+
     } catch (error) {
       throw new Error(`Login Error: ${error.message}`);
     }
@@ -38,19 +42,29 @@ export const AuthProvider = ({ children }) => {
   };
 
   // ✅ Ensure user state persists after page reload
+  // useEffect(() => {
+  //   if (token) {
+  //     fetch("/api/auth/me", {
+  //       headers: { Authorization: `Bearer ${token}` },
+  //     })
+  //         .then((res) => res.json())
+  //         .then((data) => {
+  //           setUser(data.user);
+  //           localStorage.setItem("user", JSON.stringify(data.user)); // ✅ Save updated user info
+  //         })
+  //         .catch(() => logout());
+  //   }
+  // }, [token]);
+
   useEffect(() => {
-    if (token) {
-      fetch("/api/auth/me", {
-        headers: { Authorization: `Bearer ${token}` },
-      })
-          .then((res) => res.json())
-          .then((data) => {
-            setUser(data.user);
-            localStorage.setItem("user", JSON.stringify(data.user)); // ✅ Save updated user info
-          })
-          .catch(() => logout());
+    const savedToken = localStorage.getItem("token");
+    const savedUser = localStorage.getItem("user");
+
+    if (savedToken && savedUser) {
+      setToken(savedToken);
+      setUser(JSON.parse(savedUser));
     }
-  }, [token]);
+  }, []);
 
   return (
       <AuthContext.Provider value={{ user, login, logout, token }}>
